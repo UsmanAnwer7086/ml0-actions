@@ -1,27 +1,18 @@
-
 name: Hello World Workflow
 
 on:
   push:
+  pull_request:
   workflow_dispatch:
 
 jobs:
   hello:
     name: My First Job
     runs-on: ubuntu-latest
-
     steps:
       - name: Print Hello World
         run: echo "Hello World from GitHub Actions!"
 
-      - name: Print another message
-        run: echo "My first workflow is running successfully."
-
-      - name: Show current directory
-        run: pwd
-
-      - name: List files
-        run: ls -la
   world:
     name: My Second Job
     runs-on: windows-latest
@@ -29,3 +20,10 @@ jobs:
       - name: Print Hello World
         run: echo "Hello World from GitHub Actions!"
 
+  pull_request_job:
+    name: Pull Request Job
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: PR Specific Step
+        run: echo "Hello from a Pull Request!"
