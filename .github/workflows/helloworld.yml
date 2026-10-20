@@ -1,0 +1,24 @@
+
+name: Hello World Workflow
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  hello:
+    name: My First Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello World
+        run: echo "Hello World from GitHub Actions!"
+
+      - name: Print another message
+        run: echo "My first workflow is running successfully."
+
+      - name: Show current directory
+        run: pwd
+
+      - name: List files
+        run: ls -la
