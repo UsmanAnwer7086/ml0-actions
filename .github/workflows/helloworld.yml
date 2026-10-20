@@ -22,3 +22,10 @@ jobs:
 
       - name: List files
         run: ls -la
+  world:
+    name: My Second Job
+    runs-on: windows-latest
+    steps:
+      - name: Print Hello World
+        run: echo "Hello World from GitHub Actions!"
+
